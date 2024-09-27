@@ -21,9 +21,8 @@ public class JSONTranslationExample {
         try {
             // this next line of code reads in a file from the resources folder as a String,
             // which we then create a new JSONArray object from.
-            // TODO CheckStyle: Line is longer than 120 characters
-            //                  (note: you can split a line such that the next line starts with a .method()... call
-            String jsonString = Files.readString(Paths.get(getClass().getClassLoader().getResource("sample.json").toURI()));
+            String jsonString = Files.readString(
+                    Paths.get(getClass().getClassLoader().getResource("sample.json").toURI()));
             this.jsonArray = new JSONArray(jsonString);
         }
         catch (IOException | URISyntaxException ex) {
@@ -36,10 +35,8 @@ public class JSONTranslationExample {
      * @return the Spanish translation of Canada
      */
     public String getCanadaCountryNameSpanishTranslation() {
-
-        // TODO Checkstyle: '30' is a magic number.
-        JSONObject canada = jsonArray.getJSONObject(30);
-        return canada.getString("es");
+        JSONObject canada = jsonArray.getJSONObject(CANADA_INDEX);
+        return canada.getString("en");
     }
 
     // TODO Task: Complete the method below to generalize the above to get the country name
@@ -54,7 +51,12 @@ public class JSONTranslationExample {
     public String getCountryNameTranslation(String countryCode, String languageCode) {
         return "Country not found";
     }
+        int id =0;
+        for (int i = 0; i < jsonArray.length(); i++){
 
+    }
+        JSONObject canada = jsonArray.getJSONObject(CANADA_INDEX);
+        return canada.getString("fr");
     /**
      * Prints the Spanish translation of Canada.
      * @param args not used
